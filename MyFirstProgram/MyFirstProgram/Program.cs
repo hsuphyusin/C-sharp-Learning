@@ -1,62 +1,88 @@
-﻿using Microsoft.VisualBasic.FileIO;
+﻿
 using System;
-using System.Globalization;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.Intrinsics.X86;
-using static System.Net.WebRequestMethods;
+using System.Net.Sockets;
 
 namespace MyFirstProgram
 {
-    
-
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine( "\tSchool sumbit application");
+           const string ADDRESS = "Mandalay";
+           const string YES = "y";
+           bool isfinished = false; 
+           int id = 1;
+           string name,email,phone,gender,address;
 
-            Console.WriteLine("What's your name?");
-            string name = Console.ReadLine();
+           Console.WriteLine("What is your name?");
+           name = Console.ReadLine();
 
-            Console.WriteLine("What's your email address?");
-            string email = Console.ReadLine();
+           Console.WriteLine("What is your Email?");
+           email = Console.ReadLine();
 
-            Console.WriteLine("What's your phone number?");
-            int phoneNumber = Convert.ToInt32(Console.ReadLine());
+           Console.WriteLine("What's your phone?");
+           phone = Console.ReadLine();
 
-            Console.WriteLine("What's your gender?");
-            string gender = Console.ReadLine();
+           Console.WriteLine("What's your gender?");
+           gender = Console.ReadLine();
 
-            Console.WriteLine("What's your address?");
-            string address = Console.ReadLine();
-            
-             /*Random random = new Random();
-            int IDnumber = random.Next(1,101);
-            Console.WriteLine("Your ID number is:" +IDnumber);*/
+           Console.WriteLine("What's your address?");
+           address = Console.ReadLine();
 
-            if (address == "Mandalay")
-            {
-               Console.WriteLine("You can submit your request.");
-            }
-            else
-            {
-                Console.WriteLine("You can't submit request!);
-            } 
-             
-            int ID = 1;
-                                    
-            if (gender == "male")
-            {
-               Console.WriteLine(+2ID);
-            }
-            else
-            {
-               Console.WriteLine(++ID);
-            }  
-            
+           if (address == ADDRESS && !isfinished)
+           {
+              Console.WriteLine("You can submit your submit.");
+              Console.WriteLine("Your id is:" + id);
+              id++;
+              isfinished = true;
+           }
+           else
+           {
+              Console.WriteLine("You can't submit your request!");
+           }
+           while (id <= 100)
+           {
+              Console.WriteLine("another student y/n:");
+              var anotherstudent = Console.ReadLine();
+              if (anotherstudent == YES)
+              {
+                isfinished = false;
+                
+                Console.WriteLine("What is your name?");
+                name = Console.ReadLine();
 
-               /*string fullName = "Hsu Phyu Sin";
+                Console.WriteLine("What is your Email?");
+                email = Console.ReadLine();
+
+                Console.WriteLine("What's your phone?");
+                phone = Console.ReadLine();
+
+                Console.WriteLine("What's your gender?");
+                gender = Console.ReadLine();
+
+                Console.WriteLine("What's your address?");
+                address = Console.ReadLine();
+                    
+                if (address == ADDRESS && !isfinished)
+                {
+                  Console.WriteLine("You can submit your address.");
+                  Console.WriteLine("Your id is:" + id);
+                  id++;
+                  isfinished =true;
+                }
+                else
+                {
+                  Console.WriteLine("You can't submit your request!");
+                }   
+              }
+              else
+              {
+                break;
+              }
+           }
+          Console.WriteLine("The student submit application is closed.\n Thanks for using our program.);");
+
+                /*string fullName = "Hsu Phyu Sin";
                 string phoneNo = "123-456-789";
                 phoneNo = phoneNo.Replace("-","");
 
